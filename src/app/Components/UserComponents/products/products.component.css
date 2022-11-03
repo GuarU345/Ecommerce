@@ -1,0 +1,18 @@
+.container{
+    margin-top: 10px;
+}
+.prod_name{
+    font-family: monospace;
+}
+.img{
+    width: 25%;
+}
+.card{
+    align-items: center;
+}
+.inpcant{
+    width: 80px;
+}
+.icono{
+    margin-left: 300px;
+}

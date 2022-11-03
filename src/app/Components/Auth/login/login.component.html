@@ -1,0 +1,22 @@
+<div class="acomodar">
+    <div class="row">
+      <div class="col blanco">
+         <div>
+            <h1 class="title">LOGIN</h1>
+         </div>
+      </div>
+      <div class="col negro">
+          <form [formGroup]="LoginForm" class="formlog">
+            <h2>UTTFOODLOGIN</h2>
+            <div class="form-group">
+                <input class="form-control" formControlName="email" type="text" placeholder="Usuario">
+            </div><br>
+            <div class="form-group">
+                <input class="form-control" formControlName="password" type="password" placeholder="Contraseña">
+            </div><br>
+            <button class="btn btn-primary form-control" (click)="login()">Login</button>
+            <a class="" routerLink="/register">dont have account? go to register</a>
+        </form>
+      </div>
+    </div>
+</div>

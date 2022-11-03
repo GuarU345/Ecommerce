@@ -1,0 +1,25 @@
+<div class="acomodar">
+    <div class="row">
+        <div class="col negro">
+            <div>
+                <h1 class="title">REGISTER</h1>
+            </div>
+        </div>
+        <div class="col blanco">
+           <form [formGroup]="RegisterForm" class="formreg">
+            <h2>UTTFOOD REGISTER</h2>
+            <div class="form-group">
+                <input class="form-control" formControlName="username" required type="text" placeholder="Usuario" autofocus>
+            </div><br>
+              <div class="form-group">
+               <input class="form-control" formControlName="email" required placeholder="Correo" type="text">
+              </div><br>
+              <div class="form-group">
+                 <input class="form-control" formControlName="password" required placeholder="Contraseña" type="password">
+              </div><br>
+              <button class="btn btn-success form-control" (click)="register()">Register</button>
+              <button class="btn btn-primary form-control btncancel" routerLink="/login">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>

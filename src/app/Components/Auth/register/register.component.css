@@ -1,0 +1,31 @@
+.acomodar{
+    overflow: hidden;
+}
+.negro {
+    background-color: black;
+    color: white;
+    height: 100vh;
+}
+.title{
+    margin-top: 400px;
+    margin-left: 200px;
+    font-size: 100px;
+}
+
+.blanco {
+    background-color: orange;
+    color: black;
+    height: 100vh;
+}
+
+.formreg {
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 200px;
+    margin-left: 200px;
+    width: 500px;
+    height: 500px;
+}
+.btncancel{
+    margin-top: 10px;
+}
