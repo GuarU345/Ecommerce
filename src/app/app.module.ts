@@ -13,6 +13,9 @@ import { HomeComponent } from './Components/home/home.component';
 import { ProductsComponent } from './Components/UserComponents/products/products.component';
 import { MarketCarComponent } from './Components/UserComponents/market-car/market-car.component';
 import { UserServiceService } from './Components/UserComponents/user-service.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { DialogoConfirmacionComponent } from './Components/dialogo-confirmacion/dialogo-confirmacion.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { UserServiceService } from './Components/UserComponents/user-service.ser
     RegisterComponent,
     HomeComponent,
     ProductsComponent,
-    MarketCarComponent
+    MarketCarComponent,
+    DialogoConfirmacionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,14 @@ import { UserServiceService } from './Components/UserComponents/user-service.ser
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [AuthServiceService,
     UserServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    DialogoConfirmacionComponent
+  ]
 })
 export class AppModule { }

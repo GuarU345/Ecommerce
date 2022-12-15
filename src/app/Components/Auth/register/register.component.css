@@ -1,31 +1,40 @@
-.acomodar{
-    overflow: hidden;
+.flex-container{
+    display: flex;
+    flex-direction: row;
 }
 .negro {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
     background-color: black;
     color: white;
     height: 100vh;
 }
-.title{
-    margin-top: 400px;
-    margin-left: 200px;
-    font-size: 100px;
-}
-
 .blanco {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
     background-color: orange;
     color: black;
     height: 100vh;
 }
+.title{
+    font-size: 5rem;
+}
 
 .formreg {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
     background-color: white;
-    border-radius: 20px;
-    margin-top: 200px;
-    margin-left: 200px;
-    width: 500px;
-    height: 500px;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
 }
-.btncancel{
-    margin-top: 10px;
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

@@ -1,18 +1,39 @@
-.container{
-    margin-top: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+.flex-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 2rem;
+    gap: 1.5rem;
 }
 .prod_name{
-    font-family: monospace;
-}
-.img{
-    width: 25%;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
 }
 .card{
+    border-bottom: 2px solid black;
+}
+.content{
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
 }
-.inpcant{
-    width: 80px;
+.card img{
+    width: 7rem;
 }
-.icono{
-    margin-left: 300px;
+
+.card:hover{
+    opacity: 0.75;
+    cursor: pointer;
 }
+
+.icon-container button{
+    float: right;
+ }
+
+ @media (max-width:768px){
+    .flex-container{
+        grid-template-columns: auto;
+    }
+ }

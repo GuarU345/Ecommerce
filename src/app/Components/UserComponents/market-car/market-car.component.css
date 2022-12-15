@@ -1,6 +1,61 @@
-.acomodar{
+.centrar{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 250px;
 }
 .img{
-    width: 20%;
+    width: 10rem;
+}
+.flex-container{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+.title{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+.total{
+    display: flex;
+    flex-grow: 1;
+    padding: 10px;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.flex-container2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.card{
+ width: 82rem;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    justify-content: center;
+}
+.content2{
+    display: flex;
+    gap: 10px;
+}
+.delete{
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width:768px){
+    .flex-container2{
+        flex-wrap: wrap;
+    }
+    .card{
+        width: 100%;
+    }
+    .content{
+        align-items: center;
+    }
 }

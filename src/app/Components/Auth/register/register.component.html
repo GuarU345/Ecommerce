@@ -1,11 +1,10 @@
-<div class="acomodar">
-    <div class="row">
-        <div class="col negro">
+    <div class="flex-container">
+        <div class="negro">
             <div>
                 <h1 class="title">REGISTER</h1>
             </div>
         </div>
-        <div class="col blanco">
+        <div class="blanco">
            <form [formGroup]="RegisterForm" class="formreg">
             <h2>UTTFOOD REGISTER</h2>
             <div class="form-group">
@@ -17,9 +16,11 @@
               <div class="form-group">
                  <input class="form-control" formControlName="password" required placeholder="Contraseña" type="password">
               </div><br>
-              <button class="btn btn-success form-control" (click)="register()">Register</button>
-              <button class="btn btn-primary form-control btncancel" routerLink="/login">Cancelar</button>
+              <div class="buttons">
+                <button class="btn btn-success form-control" (click)="register()">Register</button>
+                <button class="btn btn-primary form-control btncancel" routerLink="/login">Cancelar</button>
+              </div>
             </form>
         </div>
     </div>
-</div>
+

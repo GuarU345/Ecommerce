@@ -1,19 +1,34 @@
 <app-dashboard></app-dashboard>
-<div>
-    <div class="col acomodar">
-            <h1>Car Shopping</h1>
-            <p>Total: ${{prodtot.total}}</p>
-            <button class="btn btn-primary" (click)="completeBuy()">Complete</button>
-        </div>
-        <div class="col">
-          <div class="card card-body">
-            <button class="btn" (click)="delProdInCar(prodcars.market_id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-            </svg></button>
-            <h3>{{prodcars.product_name}}</h3>
-            <p>${{prodcars.price}}</p>
-            <p>Cantidad: {{prodcars.quantity}}</p>
-            <img src={{prodcars.image}} class="img-fluid img" alt="">
+<div class="centrar" *ngIf="carritovacio">
+  <h1>Carrito Vacio</h1>
+</div>
+
+<div *ngIf="!carritovacio">
+    <div class="flex-container">
+      <div class="title">
+        <h1>Car Shopping</h1>
+      </div>
+      <div class="total">
+        <p>Total: ${{prodtotfin['sum(`total`)']}}</p>
+        <button class="btn btn-primary acomodar" (click)="completeBuy()">Complete</button>
+      </div>
+    </div>
+               
+        <div class="flex-container2">
+          <div *ngFor="let products of prodcars" class="card">
+            <div class="delete">
+              <button class="btn" (click)="delProdInCar(products.market_id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+              </svg></button>
+            </div>
+            <div class="content">
+              <h3>{{products.product_name}}</h3>
+            <div class="content2">
+              <p>${{products.price}}</p>
+              <p>Cantidad: {{products.quantity}}</p>
+            </div>
+              <img src={{products.image}} class="img-fluid img" alt="">
+            </div>
           </div>
         </div>
     </div>
