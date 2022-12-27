@@ -1,10 +1,10 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { interval } from 'rxjs';
 import Swal from 'sweetalert2';
 import { AuthServiceService } from '../../Auth/auth-service.service';
 import { User } from '../../Models/user';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogoConfirmacionComponent } from "../../dialogo-confirmacion/dialogo-confirmacion.component"
+import { DialogoConfirmacionComponent } from '../../dialogo-confirmacion/dialogo-confirmacion.component';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -26,6 +26,8 @@ export class MarketCarComponent implements OnInit {
   };
 
   prodcars: any[] | undefined;
+
+  odetails: any[] | undefined;
 
   lstorder = {
     order_id: '',
@@ -52,32 +54,15 @@ export class MarketCarComponent implements OnInit {
     buy_quantity: '',
   };
 
-  mostrarDialogo(id:any): void {
-    this.dialogo
-      .open(DialogoConfirmacionComponent, {
-        data: `Seguro que deseas eliminar este producto del carrito?`
-      })
-      .afterClosed()
-      .subscribe((confirmado: Boolean) => {
-        if (confirmado) {
-         this.delProdInCar(id)
-        } else {
-          !this.mostrarDialogo
-        }
-      });
-  }
-
-
   public carritovacio: boolean = false;
 
-  getUser(userlog:any){
+  getUser(userlog: any) {
     this.alternservice.getUser().subscribe((user: any) => {
-       userlog=user.id
-       return userlog
-    })
+      userlog = user.id;
+      return userlog;
+    });
   }
 
- 
   ngOnInit(): void {
     this.alternservice.getUser().subscribe((user: any) => {
       this.carservice.getMarketCar(user.id).subscribe((car: any) => {
@@ -101,7 +86,7 @@ export class MarketCarComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Delete',
     }).then((result) => {
       if (result.isConfirmed) {
         this.carservice.DelProdToCar(id).subscribe((del: any) => {
@@ -113,7 +98,7 @@ export class MarketCarComponent implements OnInit {
           location.reload();
         });
       }
-    })
+    });
   }
 
   completeBuy() {
@@ -123,7 +108,7 @@ export class MarketCarComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, confirmar compra'
+      confirmButtonText: 'Yes, buy!',
     }).then((result) => {
       if (result.isConfirmed) {
         this.alternservice.getUser().subscribe((user: any) => {
@@ -148,9 +133,11 @@ export class MarketCarComponent implements OnInit {
                   total: item.total,
                   buy_quantity: item.quantity,
                 };
-                this.carservice.createOrderDetail(detail).subscribe((pet: any) => {
-                  this.odetail = pet;
-                });
+                this.carservice
+                  .createOrderDetail(detail)
+                  .subscribe((pet: any) => {
+                    this.odetail = pet;
+                  });
               });
             });
             Swal.fire(
@@ -160,8 +147,21 @@ export class MarketCarComponent implements OnInit {
             );
           }, 5000);
         });
+        setTimeout(() => {
+          this.carservice.deleteMKNextToBuy().subscribe(() => {});
+          const lstorderid = {
+            lstorder: this.lstorder,
+          };
+          this.carservice.getOrderDetail(lstorderid).subscribe((od: any) => {
+            this.odetails = od;
+            console.log(this.odetails);
+          });
+          const contador = interval(2000);
+          contador.subscribe(() => {
+            location.reload();
+          });
+        }, 7000);
       }
-    })
-    
+    });
   }
 }

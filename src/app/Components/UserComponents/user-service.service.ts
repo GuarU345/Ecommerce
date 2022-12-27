@@ -39,4 +39,11 @@ export class UserServiceService {
   getLastOrder(id:any):Observable<any>{
     return this.userclient.get<any>(`http://127.0.0.1:3333/lstorder/${id}`)
   }
+  deleteMKNextToBuy(){
+    return this.userclient.delete('http://127.0.0.1:3333/delmk')
+  }
+  getOrderDetail(lstorder:any){
+    const nom_url=this.url+"getod"
+    return this.userclient.post<any>(nom_url,lstorder)
+  }
 }

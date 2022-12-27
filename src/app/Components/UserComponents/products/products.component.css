@@ -32,6 +32,7 @@
     float: right;
  }
 
+
  @media (max-width:768px){
     .flex-container{
         grid-template-columns: auto;

@@ -1,6 +1,6 @@
 <app-dashboard></app-dashboard>
 <div class="centrar" *ngIf="carritovacio">
-  <h1>Carrito Vacio</h1>
+  <h3>Agrega productos para que aparezcan aqui</h3>
 </div>
 
 <div *ngIf="!carritovacio">
@@ -12,8 +12,7 @@
         <p>Total: ${{prodtotfin['sum(`total`)']}}</p>
         <button class="btn btn-primary acomodar" (click)="completeBuy()">Complete</button>
       </div>
-    </div>
-               
+    </div>   
         <div class="flex-container2">
           <div *ngFor="let products of prodcars" class="card">
             <div class="delete">
